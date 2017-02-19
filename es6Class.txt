@@ -1,0 +1,77 @@
+/* es6 class generator */
+class student{
+  
+  constructor(Name, Age, Birth, Gender, Id) {
+    this.name = Name;
+    this.age = Age;
+    this.birth = Birth;
+    this.gender = Gender;
+    this.id = Id;
+    this.hobbies = [];
+  }
+  
+  SetName(newName) {
+    this.name = newName;
+  }
+  GetName(){
+    return this.name;
+  }
+  SetAge(newAge) {
+    this.age = newAge;
+  }
+  GetAge(){
+    return this.age;
+  }
+  SetBirth(newBirth) {
+    this.birth = newBirth;
+  }
+  GetBirth(){
+    return this.birth;
+  }
+  SetGender(newGender) {
+    (newGender === "Male" || newGender === "Female") ? this.gender = newGender : this.gender = "Gender tidak valid";
+    
+  }
+  GetGender() {
+    return this.gender;
+  }
+  
+  addHobby(newHobby){
+    this.hobbies.push(newHobby);
+  }
+  removeHobby(Hobbies){
+    var pushUlang = [];
+    this.hobbies.forEach(function(hobinya){
+      if(Hobbies === hobinya){
+        var tampung = hobinya;
+      }else{
+        pushUlang.push(hobinya);
+      }
+      
+    })
+    this.hobbies = pushUlang;
+    
+  }
+  getHobby(){
+    return this.hobbies;
+  }
+  
+  getData(){
+    let student = "Nama : " +this.name+ ", "+ "Age : " +this.age+", "+"Date of Birth : "+this.birth+", "+"Gender : "+this.gender+", "+"ID : "+this.id+", "+"Hobbies : "+this.hobbies;
+    return student;
+  }
+  
+}
+
+let siswa = new student("Maulana", "24", "1992", "L", "222", "Sepak Bola");
+siswa.SetName("robert");
+siswa.SetAge("30");
+siswa.SetBirth("1990");
+siswa.SetGender("Female");
+siswa.SetGender("Female");
+siswa.addHobby("Badminton");
+siswa.addHobby("Renang");
+siswa.addHobby("Basket");
+siswa.removeHobby("Basket");
+console.log(siswa.getHobby());
+
